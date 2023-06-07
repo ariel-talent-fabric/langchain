@@ -12,7 +12,7 @@ from langchain.chains.llm import LLMChain
 from langchain.schema import BaseOutputParser
 
 
-class RunEvalInputMapper:
+class RunEvaluatorInputMapper:
     """Map the inputs of a run to the inputs of an evaluation."""
 
     @abstractmethod
@@ -34,7 +34,7 @@ class RunEvaluatorOutputParser(BaseOutputParser[EvaluationResult]):
 class RunEvaluatorChain(Chain, RunEvaluator):
     """Evaluate Run and optional examples."""
 
-    input_mapper: RunEvalInputMapper
+    input_mapper: RunEvaluatorInputMapper
     """Maps the Run and Optional example to a dictionary for the eval chain."""
     eval_chain: LLMChain
     """The evaluation chain."""
